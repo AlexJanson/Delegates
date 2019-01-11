@@ -2,16 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickHandler : MonoBehaviour
-{
+public class ClickHandler : MonoBehaviour {
 
-    // Use this for initialization
-    void Start()
-    {
+    public delegate void EnemyKilled();
+    public event EnemyKilled enemyKilledEvent;
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
@@ -20,6 +15,9 @@ public class ClickHandler : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit)) {
                 Destroy(hit.transform.gameObject);
+                if (enemyKilledEvent != null) {
+                    enemyKilledEvent();
+                }
             }
         }
     }

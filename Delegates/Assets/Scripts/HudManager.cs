@@ -7,27 +7,18 @@ public class HudManager : MonoBehaviour
 {
     [SerializeField]
     private Text killCounter;
-
     private int killsAmount = 0;
 
     private delegate void ScoreDelegate(GameObject player);
 
-    private GameObject playerObj;
-
     void Start()
     {
-        playerObj = GameObject.Find("Player");
-    }
-
-    int GetPlayerKills(GameObject _player)
-    {
-        return playerObj.killsAmount;
+        FindObjectOfType<ClickHandler>().enemyKilledEvent += UpdateCounter;
     }
 
     void UpdateCounter()
     {
-        int _playerKills = 
-
+        killsAmount++;
         killCounter.text = "Kills: " + killsAmount.ToString();
     }
 }
