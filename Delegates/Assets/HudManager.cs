@@ -8,21 +8,26 @@ public class HudManager : MonoBehaviour
     [SerializeField]
     private Text killCounter;
 
-	// Use this for initialization
-	void Start ()
+    private int killsAmount = 0;
+
+    private delegate void ScoreDelegate(GameObject player);
+
+    private GameObject playerObj;
+
+    void Start()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+        playerObj = GameObject.Find("Player");
+    }
+
+    int GetPlayerKills(GameObject _player)
     {
-		
-	}
+        return playerObj.killsAmount;
+    }
 
     void UpdateCounter()
     {
-        killCounter.text = "Kills: " + killCounter.ToString();
+        int _playerKills = 
 
+        killCounter.text = "Kills: " + killsAmount.ToString();
     }
 }
