@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour {
     IEnumerator SpawnEnemy()
     {
         yield return new WaitForSeconds(1f);
-        prefab.transform.position = new Vector3(Random.RandomRange(-2f, 2f), 0, Random.RandomRange(-2f, 2f));
+        prefab.transform.position = new Vector3(Random.Range(-2f, 2f), 0, Random.Range(-2f, 2f));
         Instantiate(prefab, spawnHolder);
         yield return StartCoroutine(SpawnEnemy());
     }

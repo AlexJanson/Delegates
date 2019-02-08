@@ -9,8 +9,6 @@ public class HudManager : MonoBehaviour
     private Text killCounter;
     private int killsAmount = 0;
 
-    private delegate void ScoreDelegate(GameObject player);
-
     void Start()
     {
         FindObjectOfType<ClickHandler>().enemyKilledEvent += UpdateCounter;
